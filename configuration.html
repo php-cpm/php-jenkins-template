@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="本项目的目标是提供php项目使用Jenkins创建任务的标准模版" />
   <meta name="author" content="Sebastian Bergmann" />
-  <title>Jenkins任务模版-PHP版: Configuration</title>
+  <title>Jenkins任务模版-PHP版: 配置</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/highlight.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -44,20 +44,20 @@
    </div>
    <div class="container">
     <div class="page-header">
-     <h1>Configuration</h1>
+     <h1>配置</h1>
     </div>
     <h2>PHPUnit</h2>
-    <p>The <code>phpunit</code> task in the <code>build.xml</code> (see "<a href="automation.html">自动化</a>") assumes that an XML configuration file for PHPUnit is used to configure the following logging targets:</p>
+    <p><code>build.xml</code> 文件里的 <code>phpunit</code> 任务 (see "<a href="automation.html">自动化</a>") 默认的PHPUNIT XML配置文件目标如下：</p>
     <pre><code>&lt;logging&gt;
  &lt;log type="coverage-html" target="build/coverage"/&gt;
  &lt;log type="coverage-clover" target="build/logs/clover.xml"/&gt;
  &lt;log type="coverage-crap4j" target="build/logs/crap4j.xml"/&gt;
  &lt;log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/&gt;
 &lt;/logging&gt;</code></pre>
-    <p>You can <a href="download/phpunit.xml.dist">download</a> a sample <code>phpunit.xml.dist</code> and place it in your project root to get started.</p>
-    <p>More information can be found in the <a href="http://www.phpunit.de/manual/current/en/appendixes.configuration.html">documentation</a> for PHPUnit.</p>
+    <p> <a href="download/phpunit.xml.dist">下载</a> 一份 <code>phpunit.xml.dist</code> 放到你的项目根目录，就可以开始了</p>
+    <p>阅读PHPUnit<a href="http://www.phpunit.de/manual/current/en/appendixes.configuration.html">文档</a>获取更多详情.</p>
     <h2>phpDox</h2>
-    <p>The <code>phpdox</code> task in the <code>build.xml</code> (see "<a href="automation.html">自动化</a>") assumes that an XML configuration file for phpDox is used to configure the API documentation generation:</p>
+    <p> <code>build.xml</code>文件里的 <code>phpdox</code> 任务 (see "<a href="automation.html">自动化</a>") 默认的XML配置文件:</p>
     <pre><code>&lt;phpdox xmlns="http://phpdox.net/config"&gt;
  &lt;project name="name-of-project" source="src" workdir="build/phpdox"&gt;
   &lt;collector publiconly="false"&gt;
@@ -71,19 +71,19 @@
   &lt;/generator&gt;
  &lt;/project&gt;
 &lt;/phpdox&gt;</code></pre>
-    <p>More information can be found in the <a href="http://phpdox.de/getting-started.html">documentation</a> for phpDox.</p>
+    <p>阅读phpDox <a href="http://phpdox.de/getting-started.html">文档</a>获取更多详情.</p>
     <h2>PHP_CodeSniffer</h2>
-    <p>The <code>phpcs</code> and <code>phpcs-ci</code> tasks in the <code>build.xml</code> (see "<a href="automation.html">自动化</a>") assume that an XML configuration file for PHP_CodeSniffer is used to configure the coding standard:</p>
+    <p><code>build.xml</code> 文件里的 <code>phpcs</code> 和 <code>phpcs-ci</code> 任务 (see "<a href="automation.html">自动化</a>") 默认的XML配置文件:</p>
     <pre><code>&lt;ruleset name="name-of-your-coding-standard"&gt;
  &lt;description&gt;Description of your coding standard&lt;/description&gt;
 
  &lt;rule ref="Generic.PHP.DisallowShortOpenTag"/&gt;
  &lt;!-- ... --&gt;
 &lt;/ruleset&gt;</code></pre>
-	<p>The build script assumes that the rule sets for PHP_CodeSniffer is located at <code>build/phpcs.xml</code>.</p>
-    <p>More information can be found in the <a href="http://pear.php.net/manual/en/package.php.php-codesniffer.annotated-ruleset.php">documentation</a> for PHP_CodeSniffer.</p>
+	<p>默认构建规则视为 PHP_CodeSniffer 参数定义在 <code>build/phpcs.xml</code>里</p>
+    <p>阅读 PHP_CodeSniffer <a href="http://pear.php.net/manual/en/package.php.php-codesniffer.annotated-ruleset.php">文档</a> for 获取更多详情.</p>
     <h2>PHPMD</h2>
-    <p>The <code>phpmd</code> and <code>phpmd-ci</code> tasks in the <code>build.xml</code> (see "<a href="automation.html">自动化</a>") assume that an XML configuration file for PHPMD is used to configure the coding standard:</p>
+    <p> <code>build.xml</code>文件里的<code>phpmd</code> 和 <code>phpmd-ci</code> 任务 (see "<a href="automation.html">自动化</a>") 默认的XML配置文件:</p>
     <pre><code>&lt;ruleset name="name-of-your-coding-standard"
   xmlns="http://pmd.sf.net/ruleset/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -95,8 +95,8 @@
   &lt;rule ref="rulesets/codesize.xml/CyclomaticComplexity" /&gt;
   &lt;!-- ... --&gt;
 &lt;/ruleset&gt;</code></pre>
-	<p>The build script assumes that the rule sets for PHPMD is located at <code>build/phpmd.xml</code>.</p>
-    <p>More information can be found in the <a href="http://phpmd.org/documentation/creating-a-ruleset.html">documentation</a> for PHPMD.</p>
+	<p>默认构建规则视为 PHPMD  参数定义在 <code>build/phpmd.xml</code>里</p>
+    <p>阅读 PHPMD<a href="http://phpmd.org/documentation/creating-a-ruleset.html">文档</a> for 获取更多详情.</p>
    </div>
   </div>
   <div id="footer">
